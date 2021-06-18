@@ -93,7 +93,7 @@ const scoringAlgorithms = [
 function scorerPrompt(word) {
   selectedInput = input.question(`Which scoring algorithm would you like to use? \n
   0 - ${scoringAlgorithms[0].name}: One point per character \n
-  1 - ${scoringAlgorithms[1].name}: Vowels are worth 3 points \n
+  1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description} \n
   2 - ${scoringAlgorithms[2].name}: Uses scrabble point system \n
   Enter 0, 1, or 2: `);
   if (selectedInput === '0') {
