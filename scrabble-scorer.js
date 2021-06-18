@@ -41,7 +41,7 @@ function initialPrompt() {
 let simpleScore = function(word) {
   word = word.toUpperCase();
   let simpleScore = 0;
-  for(i=0; i<word.length;i++){
+  for(let i=0; i<word.length;i++){
     simpleScore++;
   }
   return simpleScore;
@@ -52,7 +52,7 @@ let vowelBonusScore = function(word) {
   const vowels = ["a","e","i","o","u"]; 
   let vowelScore = 0; 
   for(let i = 0; i<word.length; i++) {
-    if(vowels.includes(word[i])===true) {
+    if(vowels.includes(word[i])) {
       vowelScore += 3;
     }
     else{
@@ -66,7 +66,7 @@ let scrabbleScore = function(word) {
   word = word.toUpperCase();
   let scrabbleScore = 0;
   for(let i = 0; i<word.length; i++) {
-    scrabbleScore +=newPointStructure[word[i]];
+    scrabbleScore += newPointStructure[word[i]];
     }
   return scrabbleScore;
 };
@@ -75,17 +75,16 @@ let scrabbleScore = function(word) {
 const scoringAlgorithms = [
   {
     name: 'Simple Score',
-    description: 'Each letter is worth 1 point.', 
+    description: 'Each letter is worth 1 point.',
     scoringFunction: simpleScore
   },
   {
     name: 'Simple Score',
-    description: 'Each letter is worth 1 point.', 
-    scoringFunction: vowelBonusScore
+    description: 'Each letter is worth 1 point.',scoringFunction: vowelBonusScore
   },
   {
     name: 'Simple Score',
-    description: 'Each letter is worth 1 point.', 
+    description: 'Each letter is worth 1 point.',
     scoringFunction: scrabbleScore
   }
 ];
