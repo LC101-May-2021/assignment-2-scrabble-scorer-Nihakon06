@@ -39,13 +39,17 @@ function initialPrompt() {
    };
 
 let simpleScore = function(word) {
-  return word.length;
-
+  word = word.toUpperCase();
+  let simpleScore = 0;
+  for(i=0; i<word.length;i++){
+    simpleScore++;
+  }
+  return simpleScore;
 };
 
 let vowelBonusScore = function(word) {
+  word = word.toUpperCase();
   const vowels = ["a","e","i","o","u"]; 
-  word = word.toUpperCase(); 
   let vowelScore = 0; 
   for(let i = 0; i<word.length; i++) {
     if(vowels.includes(word[i])===true) {
@@ -59,6 +63,7 @@ let vowelBonusScore = function(word) {
 };
 
 let scrabbleScore = function(word) {
+  word = word.toUpperCase();
   let scrabbleScore = 0;
   for(let i = 0; i<word.length; i++) {
     scrabbleScore +=newPointStructure[word[i]];
@@ -93,11 +98,11 @@ function scorerPrompt(word) {
   2 - ${scoringAlgorithms[2].name}: Uses scrabble point system \n
   Enter 0, 1, or 2: `);
   if (selectedInput === '0') {
-    return (`Score for ${word}: ${scoringAlgorithms[0].scorerFunction(word)}`);
+    return (`Score for ${word}: ${scoringAlgorithms[0].scoringFunction(word)}`);
   } else if (selectedInput === '1') {
-    return (`Score for ${word}: ${scoringAlgorithms[1].scorerFunction(word)}`);
+    return (`Score for ${word}: ${scoringAlgorithms[1].scoringFunction(word)}`);
   } else if (selectedInput === '2') {
-    return (`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word)}`);
+    return (`Score for ${word}: ${scoringAlgorithms[2].scoringFunction(word)}`);
   } else {
     console.log('Invalid Input');
   }
@@ -118,7 +123,7 @@ let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    word = initialPrompt();
-   scorerPrompt(word);
+   console.log(scorerPrompt(word));
    
 }
 
