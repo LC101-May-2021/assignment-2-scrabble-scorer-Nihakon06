@@ -110,12 +110,12 @@ function scorerPrompt(word) {
   }
 }
 
-function transform(object) {
+function transform(oldPointStructure) {
   let newPointObject = {};
-  for (item in object){
-    for (i = 0; i< object[item].length; i++){
-      let key = object[item][i].toLowerCase;
-      newPointObject[`${key}`]= Number(item);
+  for (let scoringAlgorithms in oldPointStructure){
+    let newPointStructure = oldPointStructure[scoringAlgorithms];
+    for (i = 0; i< newPointStructure.length; i++){
+      newPointObject[newPointStructure[i].toLowerCase)()]= Number(scoringAlgorithms);
     }
   }
   return newPointObject;
@@ -125,7 +125,7 @@ let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    let word = initialPrompt();
-   console.log(scorerPrompt(word));
+   scorerPrompt(word);
    
 }
 
