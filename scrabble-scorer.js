@@ -47,11 +47,11 @@ let simpleScore = function(word) {
 };
 
 let vowelBonusScore = function(word) {
-  word = word.toUpperCase();
-  const vowelsArray = ["A","E","I","O","U"]; 
   let vowelScore = 0; 
+  let vowelsArray = ["A", "E", "I", "O", "U"]; 
+  let capitalWord = word.toUpperCase();
   for(let i = 0; i < word.length; i++) {
-    if(vowelsArray.includes(word[i])) {
+    if(vowelsArray.includes(capitalWord[i])) {
       vowelScore += 3;
     }
     else{
@@ -62,10 +62,10 @@ let vowelBonusScore = function(word) {
 };
 
 let scrabbleScore = function(word) {
-  word = word.toLowerCase();
   let scrabbleScore = 0;
+  let lowerWord = word.toLowerCase();
   for(let i = 0; i < word.length; i++) {
-    scrabbleScore += newPointStructure[word[i]];
+    scrabbleScore += newPointStructure[lowerWord[i]];
     }
   return scrabbleScore;
 };
@@ -111,7 +111,7 @@ function transform(object) {
   let newPointObject = {};
   for (item in object){
     for (i = 0; i< object[item].length; i++){
-      let key = object[item][i];
+      let key = object[item][i].toLowerCase;
       newPointObject[`${key}`]= Number(item);
     }
   }
