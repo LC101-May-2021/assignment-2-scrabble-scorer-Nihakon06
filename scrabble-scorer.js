@@ -40,7 +40,7 @@ function initialPrompt() {
 
 let simpleScore = function(word) {
   let simpleScore = 0;
-  for(let i = 0; i < word.length; i++){
+  for(let i = 0; i < word.length; i++) {
     simpleScore++;
   }
   return simpleScore;
@@ -92,16 +92,19 @@ const scoringAlgorithms = [
 
 function scorerPrompt(word) {
   let selectedInput = input.question(`Which scoring algorithm would you like to use? \n
-  0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description} \n
-  1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description} \n
-  2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description} \n
+  0 - Simple: One point per character \n
+  1 - Vowel Bonus: Vowels are worth 3 points \n
+  2 - Scrabble: Uses scrabble point system \n
   Enter 0, 1, or 2: `);
   if (selectedInput === '0') {
-    return (`Score for ${word}: ${scoringAlgorithms[0].scoringFunction(word)}`);
+    console.log("algorithm name: ", scoringAlgorithms[0].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[0].scoringFunction(word));
   } else if (selectedInput === '1') {
-    return (`Score for ${word}: ${scoringAlgorithms[1].scoringFunction(word)}`);
+    console.log("algorithm name: ", scoringAlgorithms[1].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[1].scoringFunction(word));
   } else if (selectedInput === '2') {
-    return (`Score for ${word}: ${scoringAlgorithms[2].scoringFunction(word)}`);
+    console.log("algorithm name: ", scoringAlgorithms[2].name);
+    console.log("scorerFunction result: ", scoringAlgorithms[2].scoringFunction(word));
   } else {
     console.log('Invalid Input');
   }
