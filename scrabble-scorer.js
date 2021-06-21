@@ -34,7 +34,7 @@ function oldScrabbleScorer(word) {
 
 function initialPrompt() {
    console.log("Let's play some Scrabble!");
-   word = input.question("Enter a word to score: ");
+   let word = input.question("Enter a word to score: ");
    return word;
    };
 
@@ -62,7 +62,7 @@ let vowelBonusScore = function(word) {
 };
 
 let scrabbleScore = function(word) {
-  word = word.toUpperCase();
+  word = word.toLowerCase();
   let scrabbleScore = 0;
   for(let i = 0; i < word.length; i++) {
     scrabbleScore += newPointStructure[word[i]];
