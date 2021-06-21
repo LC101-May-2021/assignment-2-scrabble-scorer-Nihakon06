@@ -115,7 +115,7 @@ function transform(oldPointStructure) {
   for (let scoringAlgorithms in oldPointStructure){
     let newPointStructure = oldPointStructure[scoringAlgorithms];
     for (i = 0; i< newPointStructure.length; i++){
-      newPointObject[newPointStructure[i].toLowerCase)()]= Number(scoringAlgorithms);
+      newPointObject[newPointStructure[i].toLowerCase()]= Number(scoringAlgorithms);
     }
   }
   return newPointObject;
